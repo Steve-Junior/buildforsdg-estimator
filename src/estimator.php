@@ -1,6 +1,18 @@
 <?php
 
-// $request = file_get_contents('data.json');
+// $request = array(
+//   "region" => [
+//     "name" => "Africa",
+//     "avgAge"=> 19.7,
+//     "avgDailyIncomeInUSD"=> 5,
+//     "avgDailyIncomePopulation"=> 0.71
+//   ],
+//   "periodType"=> "days",
+//   "timeToElapse"=> 58,
+//   "reportedCases"=> 674,
+//   "population"=> 66622705,
+//   "totalHospitalBeds"=> 1380614
+// );
 
 // covid19ImpactEstimator($request);
 
@@ -56,7 +68,7 @@ function getDollarsInFlight($cases, $request){
 //Entry point
 function covid19ImpactEstimator($request)
 {
-  $data = json_decode($request);
+  $data = json_decode(json_encode($request, FALSE));
 
   $impact = new StdClass;
   $servereImpact = new StdClass;
@@ -84,8 +96,8 @@ function covid19ImpactEstimator($request)
   $impact->casesForVentilatorsByRequestedTime = getCasesForVentilatorsByRequestedTime($impact->infectionsByRequestedTime);
   $servereImpact->casesForVentilatorsByRequestedTime = getCasesForVentilatorsByRequestedTime($servereImpact->infectionsByRequestedTime);
 
-  $impact->dollarsInFlight = getDollarsInFlight($impact->infectionsByRequestedTime, $data->region);
-  $servereImpact->dollarsInFlight = getDollarsInFlight($servereImpact->infectionsByRequestedTime, $data->region);
+  $impact->dollarsInFlight = getDollarsInFlight($impact->infectionsByRequestedTime, $data);
+  $servereImpact->dollarsInFlight = getDollarsInFlight($servereImpact->infectionsByRequestedTime, $data);
 
   $response = responseOutput($data, $impact, $servereImpact);
   // var_dump($response);
