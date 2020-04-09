@@ -16,8 +16,8 @@
 
 // covid19ImpactEstimator($request);
 
-function getCurrentlyInfected($reportedCases, $factor) : int{
-  return intval($reportedCases) * $factor;
+function getCurrentlyInfected($reportedCases, $factor){
+  return $reportedCases * $factor;
 }
 
 function getInfectedByRequestedTime($cases, $period, $periodType){
@@ -29,7 +29,7 @@ function getInfectedByRequestedTime($cases, $period, $periodType){
 }
 
 
-function normaliseDuration($period, $type) : int{
+function normaliseDuration($period, $type){
   if($type === "days") return $period;
 
   else if($type === "weeks") return $period * 7;
@@ -49,11 +49,11 @@ function getAvailableHospitalBeds($severeCasesOverTime, $totalHospitalBeds){
 }
 
 function getCasesForICUByRequestedTime($casesByRequestedTime){
-  return 0.05 * intval($casesByRequestedTime);
+  return 0.05 * $casesByRequestedTime;
 }
 
 function getCasesForVentilatorsByRequestedTime($casesByRequestedTime){
-  return 0.02 * intval($casesByRequestedTime);
+  return 0.02 * $casesByRequestedTime;
 }
 
 function getDollarsInFlight($cases, $region, $type, $period){
