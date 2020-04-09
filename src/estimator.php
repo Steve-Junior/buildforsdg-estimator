@@ -56,51 +56,49 @@ function getCasesForVentilatorsByRequestedTime($casesByRequestedTime){
   return 0.02 * intval($casesByRequestedTime);
 }
 
-function getDollarsInFlight($cases, $request){
-  $period = normaliseDuration($request->timeToElapse, $request->periodType);
-  $region = $request->region;
+function getDollarsInFlight($cases, $region, $type, $period){
+  $period = normaliseDuration($period, $type);
 
-  $estimateLost = $cases * $region->avgDailyIncomePopulation * $region->avgDailyIncomeInUSD * $period;
+  $estimatedLost = $cases * $region['avgDailyIncomePopulation'] * $region['avgDailyIncomeInUSD'] * $period;
 
-  return number_format($estimateLost, 2); 
+  return number_format($estimatedLost, 2); 
 }
 
 //Entry point
-function covid19ImpactEstimator($request)
+function covid19ImpactEstimator($data)
 {
-  $data = json_decode(json_encode($request, FALSE));
-
-  $impact = new StdClass;
-  $severeImpact = new StdClass;
+  ['region' => $region, 'periodType' => $periodType, 'timeToElapse' => $period,  'reportedCases' => $cases,  'totalHospitalBeds' => $totalHospitalBeds] = $data;
+ 
+  $impact = [];
+  $severeImpact = [];
 
   //Challenge 1
-  $impact->currentlyInfected = getCurrentlyInfected($data->reportedCases, 10);
-  $severeImpact->currentlyInfected = getCurrentlyInfected($data->reportedCases, 50);
+  $impact['currentlyInfected'] = getCurrentlyInfected($cases, 10);
+  $severeImpact['currentlyInfected'] = getCurrentlyInfected($cases, 50);
 
-  $impact->infectionsByRequestedTime = getInfectedByRequestedTime($impact->currentlyInfected, $data->timeToElapse, $data->periodType);
-  $severeImpact->infectionsByRequestedTime = getInfectedByRequestedTime($severeImpact->currentlyInfected, $data->timeToElapse, $data->periodType);
-
+  $impact['infectionsByRequestedTime'] = getInfectedByRequestedTime($impact['currentlyInfected'], $period, $periodType);
+  $severeImpact['infectionsByRequestedTime'] = getInfectedByRequestedTime($severeImpact['currentlyInfected'], $period, $periodType);
 
   //challenge 2
-  $impact->severeCasesByRequestedTime = getSeverePositiveCases($impact->infectionsByRequestedTime);
-  $severeImpact->severeCasesByRequestedTime = getSeverePositiveCases($severeImpact->infectionsByRequestedTime);
+  $impact['severeCasesByRequestedTime'] = getSeverePositiveCases($impact['infectionsByRequestedTime']);
+  $severeImpact['severeCasesByRequestedTime'] = getSeverePositiveCases($severeImpact['infectionsByRequestedTime']);
 
-  $impact->hospitalBedsByRequestedTime = getAvailableHospitalBeds($impact->severeCasesByRequestedTime, $data->totalHospitalBeds);
-  $severeImpact->hospitalBedsByRequestedTime = getAvailableHospitalBeds($severeImpact->severeCasesByRequestedTime, $data->totalHospitalBeds);
+  $impact['hospitalBedsByRequestedTime'] = getAvailableHospitalBeds($impact['severeCasesByRequestedTime'], $totalHospitalBeds);
+  $severeImpact['hospitalBedsByRequestedTime'] = getAvailableHospitalBeds($severeImpact['severeCasesByRequestedTime'], $totalHospitalBeds);
 
 
   //Challenge 3
-  $impact->casesForICUByRequestedTime = getCasesForICUByRequestedTime($impact->infectionsByRequestedTime);
-  $severeImpact->casesForICUByRequestedTime = getCasesForICUByRequestedTime($severeImpact->infectionsByRequestedTime);
+  $impact['casesForICUByRequestedTime'] = getCasesForICUByRequestedTime($impact['infectionsByRequestedTime']);
+  $severeImpact['casesForICUByRequestedTime'] = getCasesForICUByRequestedTime($severeImpact['infectionsByRequestedTime']);
 
-  $impact->casesForVentilatorsByRequestedTime = getCasesForVentilatorsByRequestedTime($impact->infectionsByRequestedTime);
-  $severeImpact->casesForVentilatorsByRequestedTime = getCasesForVentilatorsByRequestedTime($severeImpact->infectionsByRequestedTime);
+  $impact['casesForVentilatorsByRequestedTime'] = getCasesForVentilatorsByRequestedTime($impact['infectionsByRequestedTime']);
+  $severeImpact['casesForVentilatorsByRequestedTime'] = getCasesForVentilatorsByRequestedTime($severeImpact['infectionsByRequestedTime']);
 
-  $impact->dollarsInFlight = getDollarsInFlight($impact->infectionsByRequestedTime, $data);
-  $severeImpact->dollarsInFlight = getDollarsInFlight($severeImpact->infectionsByRequestedTime, $data);
+  $impact['dollarsInFlight'] = getDollarsInFlight($impact['infectionsByRequestedTime'], $region, $periodType, $period);
+  $severeImpact['dollarsInFlight'] = getDollarsInFlight($severeImpact['infectionsByRequestedTime'], $region, $periodType, $period);
 
   $response = responseOutput($data, $impact, $severeImpact);
-  echo gettype($response);
+  // echo gettype($response);
   return $response;
 }
 
