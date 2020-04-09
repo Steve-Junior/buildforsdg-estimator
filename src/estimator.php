@@ -2,7 +2,7 @@
 
 // $request = file_get_contents('data.json');
 
-covid19ImpactEstimator($request);
+// covid19ImpactEstimator($request);
 
 function getCurrentlyInfected($reportedCases, $factor) : int{
   return intval($reportedCases) * $factor;
