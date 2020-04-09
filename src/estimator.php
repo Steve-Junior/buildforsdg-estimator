@@ -67,6 +67,8 @@ function getDollarsInFlight($cases, $region, $type, $period){
 //Entry point
 function covid19ImpactEstimator($data)
 {
+  print_r(['request' => $data]);
+
   ['region' => $region, 'periodType' => $periodType, 'timeToElapse' => $period,  'reportedCases' => $cases,  'totalHospitalBeds' => $totalHospitalBeds] = $data;
  
   $impact = [];
@@ -98,7 +100,7 @@ function covid19ImpactEstimator($data)
   $severeImpact['dollarsInFlight'] = getDollarsInFlight($severeImpact['infectionsByRequestedTime'], $region, $periodType, $period);
 
   $response = responseOutput($data, $impact, $severeImpact);
-  print_r($response);
+  print_r(['response' => $response]);
   return $response;
 }
 
