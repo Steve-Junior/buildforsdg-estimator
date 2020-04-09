@@ -1,6 +1,6 @@
 <?php
 
-$request = file_get_contents('data.json');
+// $request = file_get_contents('data.json');
 
 covid19ImpactEstimator($request);
 
