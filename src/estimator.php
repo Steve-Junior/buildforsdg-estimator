@@ -71,46 +71,40 @@ function covid19ImpactEstimator($request)
   $data = json_decode(json_encode($request, FALSE));
 
   $impact = new StdClass;
-  $servereImpact = new StdClass;
+  $severeImpact = new StdClass;
 
   //Challenge 1
   $impact->currentlyInfected = getCurrentlyInfected($data->reportedCases, 10);
-  $servereImpact->currentlyInfected = getCurrentlyInfected($data->reportedCases, 50);
+  $severeImpact->currentlyInfected = getCurrentlyInfected($data->reportedCases, 50);
 
   $impact->infectionsByRequestedTime = getInfectedByRequestedTime($impact->currentlyInfected, $data->timeToElapse, $data->periodType);
-  $servereImpact->infectionsByRequestedTime = getInfectedByRequestedTime($servereImpact->currentlyInfected, $data->timeToElapse, $data->periodType);
+  $severeImpact->infectionsByRequestedTime = getInfectedByRequestedTime($severeImpact->currentlyInfected, $data->timeToElapse, $data->periodType);
 
 
   //challenge 2
   $impact->severeCasesByRequestedTime = getSeverePositiveCases($impact->infectionsByRequestedTime);
-  $servereImpact->severeCasesByRequestedTime = getSeverePositiveCases($servereImpact->infectionsByRequestedTime);
+  $severeImpact->severeCasesByRequestedTime = getSeverePositiveCases($severeImpact->infectionsByRequestedTime);
 
   $impact->hospitalBedsByRequestedTime = getAvailableHospitalBeds($impact->severeCasesByRequestedTime, $data->totalHospitalBeds);
-  $servereImpact->hospitalBedsByRequestedTime = getAvailableHospitalBeds($servereImpact->severeCasesByRequestedTime, $data->totalHospitalBeds);
+  $severeImpact->hospitalBedsByRequestedTime = getAvailableHospitalBeds($severeImpact->severeCasesByRequestedTime, $data->totalHospitalBeds);
 
 
   //Challenge 3
   $impact->casesForICUByRequestedTime = getCasesForICUByRequestedTime($impact->infectionsByRequestedTime);
-  $servereImpact->casesForICUByRequestedTime = getCasesForICUByRequestedTime($servereImpact->infectionsByRequestedTime);
+  $severeImpact->casesForICUByRequestedTime = getCasesForICUByRequestedTime($severeImpact->infectionsByRequestedTime);
 
   $impact->casesForVentilatorsByRequestedTime = getCasesForVentilatorsByRequestedTime($impact->infectionsByRequestedTime);
-  $servereImpact->casesForVentilatorsByRequestedTime = getCasesForVentilatorsByRequestedTime($servereImpact->infectionsByRequestedTime);
+  $severeImpact->casesForVentilatorsByRequestedTime = getCasesForVentilatorsByRequestedTime($severeImpact->infectionsByRequestedTime);
 
   $impact->dollarsInFlight = getDollarsInFlight($impact->infectionsByRequestedTime, $data);
-  $servereImpact->dollarsInFlight = getDollarsInFlight($servereImpact->infectionsByRequestedTime, $data);
+  $severeImpact->dollarsInFlight = getDollarsInFlight($severeImpact->infectionsByRequestedTime, $data);
 
-  $response = responseOutput($data, $impact, $servereImpact);
-  // var_dump($response);
+  $response = responseOutput($data, $impact, $severeImpact);
+  echo gettype($response);
   return $response;
 }
 
 
-function responseOutput($request, $impact, $servereImpact){
-  $response = new StdClass;
-  
-  $response->data = $request;
-  $response->impact = $impact;
-  $response->servereImpact = $servereImpact;
-
-  return json_encode($response);
+function responseOutput($request, $impact, $severeImpact){
+  return ['data' => $request, 'impact' => $impact, 'severeImpact' => $severeImpact];
 }
