@@ -48,7 +48,9 @@ function getDollarsInFlight($cases, $request){
   $period = normaliseDuration($request->timeToElapse, $request->periodType);
   $region = $request->region;
 
-  return $cases * $region->avgDailyIncomePopulation * $region->avgDailyIncomeInUSD * $period;
+  $estimateLost = $cases * $region->avgDailyIncomePopulation * $region->avgDailyIncomeInUSD * $period;
+
+  return number_format($estimateLost, 2); 
 }
 
 //Entry point
