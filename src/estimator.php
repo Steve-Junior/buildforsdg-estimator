@@ -20,8 +20,8 @@ function getCurrentlyInfected($reportedCases, $factor){
   return $reportedCases * $factor;
 }
 
-function getInfectedByRequestedTime($cases, $period, $periodType){
-  $period = normaliseDuration($period, $periodType);
+function getInfectedByRequestedTime($cases, $time, $type){
+  $period = normaliseDuration($time, $type);
 
   $factor = intval($period/3);
 
@@ -36,7 +36,7 @@ function normaliseDuration($period, $type){
 
   else if ($type === "months") return $period * 30;
 
-  else throw new Exception('Period type must be in days');
+  else return $period;
 }
 
 function getSeverePositiveCases($cases){
@@ -98,7 +98,7 @@ function covid19ImpactEstimator($data)
   $severeImpact['dollarsInFlight'] = getDollarsInFlight($severeImpact['infectionsByRequestedTime'], $region, $periodType, $period);
 
   $response = responseOutput($data, $impact, $severeImpact);
-  // echo gettype($response);
+  print_r($response);
   return $response;
 }
 
