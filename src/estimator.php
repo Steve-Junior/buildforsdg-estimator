@@ -78,27 +78,27 @@ function covid19ImpactEstimator($data)
 
   $impactInfectionOverTime  = getInfectedByRequestedTime($impact['currentlyInfected'], $period, $periodType);
   $sevImpactInfectionOverTime = getInfectedByRequestedTime($severeImpact['currentlyInfected'], $period, $periodType);
-  $impact['infectionsByRequestedTime'] = round($impactInfectionOverTime, 1);
-  $severeImpact['infectionsByRequestedTime'] = round($sevImpactInfectionOverTime, 1);
+  $impact['infectionsByRequestedTime'] = number_format($impactInfectionOverTime, 1, '.', '');
+  $severeImpact['infectionsByRequestedTime'] = number_format($sevImpactInfectionOverTime, 1, '.', '');
 
   //challenge 2
   $impactSevereCasesOverTime  = getSeverePositiveCases($impactInfectionOverTime);
   $sevImpactSevereCasesOverTime  = getSeverePositiveCases($sevImpactInfectionOverTime);
 
-  $impact['severeCasesByRequestedTime'] = round($impactSevereCasesOverTime, 1);
-  $severeImpact['severeCasesByRequestedTime'] = round($sevImpactSevereCasesOverTime, 1);
+  $impact['severeCasesByRequestedTime'] = number_format($impactSevereCasesOverTime, 1, '.', '');
+  $severeImpact['severeCasesByRequestedTime'] = number_format($sevImpactSevereCasesOverTime, 1, '.', '');
 
   
-  $impact['hospitalBedsByRequestedTime'] = round(getAvailableHospitalBeds($impactSevereCasesOverTime, $totalHospitalBeds), 1);
-  $severeImpact['hospitalBedsByRequestedTime'] = round(getAvailableHospitalBeds($sevImpactSevereCasesOverTime, $totalHospitalBeds), 1);
+  $impact['hospitalBedsByRequestedTime'] = number_format(getAvailableHospitalBeds($impactSevereCasesOverTime, $totalHospitalBeds), 1, '.', '');
+  $severeImpact['hospitalBedsByRequestedTime'] = number_format(getAvailableHospitalBeds($sevImpactSevereCasesOverTime, $totalHospitalBeds), 1, '.', '');
 
 
   //Challenge 3
-  $impact['casesForICUByRequestedTime'] = round(getCasesForICUByRequestedTime($impactInfectionOverTime), 1);
-  $severeImpact['casesForICUByRequestedTime'] = round(getCasesForICUByRequestedTime($sevImpactInfectionOverTime), 1);
+  $impact['casesForICUByRequestedTime'] = number_format(getCasesForICUByRequestedTime($impactInfectionOverTime), 1, '.', '');
+  $severeImpact['casesForICUByRequestedTime'] = number_format(getCasesForICUByRequestedTime($sevImpactInfectionOverTime), 1, '.', '');
 
-  $impact['casesForVentilatorsByRequestedTime'] = round(getCasesForVentilatorsByRequestedTime($impactInfectionOverTime), 1);
-  $severeImpact['casesForVentilatorsByRequestedTime'] = round(getCasesForVentilatorsByRequestedTime($sevImpactInfectionOverTime),1);
+  $impact['casesForVentilatorsByRequestedTime'] = number_format(getCasesForVentilatorsByRequestedTime($impactInfectionOverTime), 1, '.', '');
+  $severeImpact['casesForVentilatorsByRequestedTime'] = number_format(getCasesForVentilatorsByRequestedTime($sevImpactInfectionOverTime),1, '.', '');
 
   $impact['dollarsInFlight'] = getDollarsInFlight($impactInfectionOverTime, $region, $periodType, $period);
   $severeImpact['dollarsInFlight'] = getDollarsInFlight($sevImpactInfectionOverTime, $region, $periodType, $period);
