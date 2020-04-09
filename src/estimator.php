@@ -40,7 +40,7 @@ function normaliseDuration($period, $type) : int{
 }
 
 function getSeverePositiveCases($cases){
-  return 0.15 * intval($cases);
+  return 0.15 * $cases;
 }
 
 function getAvailableHospitalBeds($severeCasesOverTime, $totalHospitalBeds){
