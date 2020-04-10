@@ -85,8 +85,8 @@ function covid19ImpactEstimator($data)
   $impactSevereCasesOverTime  = getSeverePositiveCases($impactInfectionOverTime);
   $sevImpactSevereCasesOverTime  = getSeverePositiveCases($sevImpactInfectionOverTime);
 
-  $impact['severeCasesByRequestedTime'] = round($impactSevereCasesOverTime, 1);
-  $severeImpact['severeCasesByRequestedTime'] = round($sevImpactSevereCasesOverTime, 1);
+  $impact['severeCasesByRequestedTime'] = number_format($impactSevereCasesOverTime, 1, '.', '');
+  $severeImpact['severeCasesByRequestedTime'] = number_format($sevImpactSevereCasesOverTime, 1, '.', '');
 
   
   $impact['hospitalBedsByRequestedTime'] = round(getAvailableHospitalBeds($impactSevereCasesOverTime, $totalHospitalBeds), 1);
