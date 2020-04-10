@@ -4,14 +4,14 @@
 //   "region" => [
 //     "name" => "Africa",
 //     "avgAge"=> 19.7,
-//     "avgDailyIncomeInUSD"=> 6,
-//     "avgDailyIncomePopulation"=> 0.59
+//     "avgDailyIncomeInUSD"=> 1,
+//     "avgDailyIncomePopulation"=> 0.58
 //   ],
 //   "periodType"=> "days",
-//   "timeToElapse"=> 97,
-//   "reportedCases"=> 1573,
-//   "population"=> 174894727,
-//   "totalHospitalBeds"=> 2826583
+//   "timeToElapse"=> 84,
+//   "reportedCases"=> 937,
+//   "population"=> 6708461,
+//   "totalHospitalBeds"=> 190469
 // );
 
 // covid19ImpactEstimator($request);
@@ -44,16 +44,20 @@ function getSeverePositiveCases($cases){
 }
 
 function getAvailableHospitalBeds($severeCasesOverTime, $totalHospitalBeds){
-  // $estimateBedAvailable = 0.35 * intval($totalHospitalBeds);
-  return $totalHospitalBeds - $severeCasesOverTime;
+    $estimateBedAvailable = 0.35 * $totalHospitalBeds;
+    $result = $estimateBedAvailable - $severeCasesOverTime;
+
+    return intval($result);
 }
 
 function getCasesForICUByRequestedTime($casesByRequestedTime){
-  return 0.05 * $casesByRequestedTime;
+  $result = 0.05 * $casesByRequestedTime;
+  return intval($result);
 }
 
 function getCasesForVentilatorsByRequestedTime($casesByRequestedTime){
-  return 0.02 * $casesByRequestedTime;
+  $result =  0.02 * $casesByRequestedTime;
+  return intval($result);
 }
 
 function getDollarsInFlight($cases, $region, $type, $period){
@@ -89,16 +93,16 @@ function covid19ImpactEstimator($data)
   $severeImpact['severeCasesByRequestedTime'] = number_format($sevImpactSevereCasesOverTime, 1, '.', '');
 
   
-  $impact['hospitalBedsByRequestedTime'] = round(getAvailableHospitalBeds($impactSevereCasesOverTime, $totalHospitalBeds), 1);
-  $severeImpact['hospitalBedsByRequestedTime'] = round(getAvailableHospitalBeds($sevImpactSevereCasesOverTime, $totalHospitalBeds), 1);
+  $impact['hospitalBedsByRequestedTime'] = getAvailableHospitalBeds($impactSevereCasesOverTime, $totalHospitalBeds);
+  $severeImpact['hospitalBedsByRequestedTime'] = getAvailableHospitalBeds($sevImpactSevereCasesOverTime, $totalHospitalBeds);
 
 
   //Challenge 3
-  $impact['casesForICUByRequestedTime'] = round(getCasesForICUByRequestedTime($impactInfectionOverTime), 1);
-  $severeImpact['casesForICUByRequestedTime'] = round(getCasesForICUByRequestedTime($sevImpactInfectionOverTime), 1);
+  $impact['casesForICUByRequestedTime'] = getCasesForICUByRequestedTime($impactInfectionOverTime);
+  $severeImpact['casesForICUByRequestedTime'] = getCasesForICUByRequestedTime($sevImpactInfectionOverTime);
 
-  $impact['casesForVentilatorsByRequestedTime'] = round(getCasesForVentilatorsByRequestedTime($impactInfectionOverTime), 1);
-  $severeImpact['casesForVentilatorsByRequestedTime'] = round(getCasesForVentilatorsByRequestedTime($sevImpactInfectionOverTime),1);
+  $impact['casesForVentilatorsByRequestedTime'] = getCasesForVentilatorsByRequestedTime($impactInfectionOverTime);
+  $severeImpact['casesForVentilatorsByRequestedTime'] = getCasesForVentilatorsByRequestedTime($sevImpactInfectionOverTime);
 
   $impact['dollarsInFlight'] = getDollarsInFlight($impactInfectionOverTime, $region, $periodType, $period);
   $severeImpact['dollarsInFlight'] = getDollarsInFlight($sevImpactInfectionOverTime, $region, $periodType, $period);
