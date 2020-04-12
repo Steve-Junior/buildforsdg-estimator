@@ -1,20 +1,20 @@
 <?php
 
-// $request = array(
-//   "region" => [
-//     "name" => "Africa",
-//     "avgAge"=> 19.7,
-//     "avgDailyIncomeInUSD"=> 1,
-//     "avgDailyIncomePopulation"=> 0.58
-//   ],
-//   "periodType"=> "days",
-//   "timeToElapse"=> 84,
-//   "reportedCases"=> 937,
-//   "population"=> 6708461,
-//   "totalHospitalBeds"=> 190469
-// );
+ $request = array(
+   "region" => [
+     "name" => "Africa",
+     "avgAge"=> 19.7,
+     "avgDailyIncomeInUSD"=> 3,
+     "avgDailyIncomePopulation"=> 0.72
+   ],
+   "periodType"=> "days",
+   "timeToElapse"=> 6,
+   "reportedCases"=> 2115,
+   "population"=> 9247213,
+   "totalHospitalBeds"=> 62715
+ );
 
-// covid19ImpactEstimator($request);
+ covid19ImpactEstimator($request);
 
 function getCurrentlyInfected($reportedCases, $factor){
   return $reportedCases * $factor;
@@ -63,15 +63,15 @@ function getCasesForVentilatorsByRequestedTime($casesByRequestedTime){
 function getDollarsInFlight($cases, $region, $type, $period){
   $period = normaliseDuration($period, $type);
 
-  $estimatedLost = $cases * $region['avgDailyIncomePopulation'] * $region['avgDailyIncomeInUSD'] * $period;
+  $estimatedLost = ($cases * $region['avgDailyIncomePopulation'] * $region['avgDailyIncomeInUSD']) / $period;
 
-  return number_format($estimatedLost, 2); 
+  return intval($estimatedLost);
 }
 
 //Entry point
 function covid19ImpactEstimator($data)
 {
-  ['region' => $region, 'periodType' => $periodType, 'timeToElapse' => $period,  'reportedCases' => $cases,  'totalHospitalBeds' => $totalHospitalBeds] = $data;
+  ['population' => $population, 'region' => $region, 'periodType' => $periodType, 'timeToElapse' => $period,  'reportedCases' => $cases,  'totalHospitalBeds' => $totalHospitalBeds] = $data;
  
   $impact = [];
   $severeImpact = [];
@@ -104,11 +104,11 @@ function covid19ImpactEstimator($data)
   $impact['casesForVentilatorsByRequestedTime'] = getCasesForVentilatorsByRequestedTime($impactInfectionOverTime);
   $severeImpact['casesForVentilatorsByRequestedTime'] = getCasesForVentilatorsByRequestedTime($sevImpactInfectionOverTime);
 
-  $impact['dollarsInFlight'] = getDollarsInFlight($impactInfectionOverTime, $region, $periodType, $period);
-  $severeImpact['dollarsInFlight'] = getDollarsInFlight($sevImpactInfectionOverTime, $region, $periodType, $period);
+  $impact['dollarsInFlight'] = getDollarsInFlight($population, $region, $periodType, $period);
+  $severeImpact['dollarsInFlight'] = getDollarsInFlight($population, $region, $periodType, $period);
 
   $response = responseOutput($data, $impact, $severeImpact);
-  print_r($response);
+  print_r($response['impact']);
   return $response;
 }
 
