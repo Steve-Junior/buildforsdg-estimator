@@ -1,20 +1,20 @@
 <?php
 
- $request = array(
-   "region" => [
-     "name" => "Africa",
-     "avgAge"=> 19.7,
-     "avgDailyIncomeInUSD"=> 3,
-     "avgDailyIncomePopulation"=> 0.72
-   ],
-   "periodType"=> "days",
-   "timeToElapse"=> 6,
-   "reportedCases"=> 2115,
-   "population"=> 9247213,
-   "totalHospitalBeds"=> 62715
- );
+// $request = array(
+//   "region" => [
+//     "name" => "Africa",
+//     "avgAge"=> 19.7,
+//     "avgDailyIncomeInUSD"=> 3,
+//     "avgDailyIncomePopulation"=> 0.72
+//   ],
+//   "periodType"=> "days",
+//   "timeToElapse"=> 6,
+//   "reportedCases"=> 2115,
+//   "population"=> 9247213,
+//   "totalHospitalBeds"=> 62715
+// );
 
- covid19ImpactEstimator($request);
+// covid19ImpactEstimator($request);
 
 function getCurrentlyInfected($reportedCases, $factor){
   return $reportedCases * $factor;
@@ -108,7 +108,7 @@ function covid19ImpactEstimator($data)
   $severeImpact['dollarsInFlight'] = getDollarsInFlight($sevImpactInfectionOverTime, $region, $periodType, $period);
 
   $response = responseOutput($data, $impact, $severeImpact);
-  print_r($response['impact']);
+  print_r($response);
   return $response;
 }
 
