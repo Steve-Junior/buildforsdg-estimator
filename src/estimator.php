@@ -104,8 +104,8 @@ function covid19ImpactEstimator($data)
   $impact['casesForVentilatorsByRequestedTime'] = getCasesForVentilatorsByRequestedTime($impactInfectionOverTime);
   $severeImpact['casesForVentilatorsByRequestedTime'] = getCasesForVentilatorsByRequestedTime($sevImpactInfectionOverTime);
 
-  $impact['dollarsInFlight'] = getDollarsInFlight($population, $region, $periodType, $period);
-  $severeImpact['dollarsInFlight'] = getDollarsInFlight($population, $region, $periodType, $period);
+  $impact['dollarsInFlight'] = getDollarsInFlight($impactInfectionOverTime, $region, $periodType, $period);
+  $severeImpact['dollarsInFlight'] = getDollarsInFlight($sevImpactInfectionOverTime, $region, $periodType, $period);
 
   $response = responseOutput($data, $impact, $severeImpact);
   print_r($response['impact']);

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdbd3414-c7dd-4da1-bb3a-b0750abee9ee" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/estimator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/estimator.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="estimator.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/estimator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-185">
-              <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
+            <state relative-caret-position="203">
+              <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -128,12 +127,12 @@
       <workItem from="1586597699046" duration="673000" />
       <workItem from="1586663745717" duration="1663000" />
       <workItem from="1586682805873" duration="440000" />
-      <workItem from="1586705400419" duration="623000" />
+      <workItem from="1586705400419" duration="844000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5982000" />
+    <option name="totallyTimeSpent" value="6203000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="123" width="1280" height="777" extended-state="0" />
@@ -199,8 +198,8 @@
     <entry file="file://$PROJECT_DIR$/src/index.php" />
     <entry file="file://$PROJECT_DIR$/src/estimator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-185">
-          <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
+        <state relative-caret-position="203">
+          <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
         </state>
       </provider>
     </entry>
