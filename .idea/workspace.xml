@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdbd3414-c7dd-4da1-bb3a-b0750abee9ee" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/helper.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,14 +16,23 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7721894">
+    <splitter split-orientation="horizontal" split-proportion="0.8668639">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="helper.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/api/helper.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="9" column="86" selection-start-line="9" selection-start-column="86" selection-end-line="9" selection-end-column="86" />
+                <state relative-caret-position="105">
+                  <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="query.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/query.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="405">
+                  <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
                 </state>
               </provider>
             </entry>
@@ -31,7 +41,7 @@
             <entry file="file://$PROJECT_DIR$/src/api/logs.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="225">
-                  <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+                  <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
@@ -83,11 +93,11 @@
         <option value="$PROJECT_DIR$/src/api/json.php" />
         <option value="$PROJECT_DIR$/src/index.php" />
         <option value="$PROJECT_DIR$/app.properties" />
-        <option value="$PROJECT_DIR$/src/api/query.php" />
         <option value="$PROJECT_DIR$/src/api/headers.php" />
         <option value="$PROJECT_DIR$/src/api/xml.php" />
         <option value="$PROJECT_DIR$/src/api/activity.log" />
         <option value="$PROJECT_DIR$/src/api/logs.php" />
+        <option value="$PROJECT_DIR$/src/api/query.php" />
         <option value="$PROJECT_DIR$/src/api/helper.php" />
       </list>
     </option>
@@ -191,12 +201,12 @@
       <workItem from="1586663745717" duration="1663000" />
       <workItem from="1586682805873" duration="440000" />
       <workItem from="1586705400419" duration="844000" />
-      <workItem from="1586734165156" duration="24314000" />
+      <workItem from="1586734165156" duration="25930000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30517000" />
+    <option name="totallyTimeSpent" value="32133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="123" width="1280" height="777" extended-state="0" />
@@ -343,13 +353,6 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/query.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SevereImpact.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -395,14 +398,21 @@
     <entry file="file://$PROJECT_DIR$/src/api/logs.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/query.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="86" selection-start-line="9" selection-start-column="86" selection-end-line="9" selection-end-column="86" />
+        <state relative-caret-position="105">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
         </state>
       </provider>
     </entry>
