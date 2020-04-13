@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fdbd3414-c7dd-4da1-bb3a-b0750abee9ee" name="Default" comment="" />
+    <list default="true" id="fdbd3414-c7dd-4da1-bb3a-b0750abee9ee" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/api/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/helper.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,11 +27,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="xml.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="xml.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/xml.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+                <state relative-caret-position="405">
+                  <caret line="32" column="93" selection-start-line="32" selection-start-column="93" selection-end-line="32" selection-end-column="93" />
                 </state>
               </provider>
             </entry>
@@ -43,11 +45,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="helper.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="helper.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/api/helper.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+                <state relative-caret-position="210">
+                  <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
                 </state>
               </provider>
             </entry>
@@ -105,7 +107,6 @@
         <option value="$PROJECT_DIR$/src/api/api.php" />
         <option value="$PROJECT_DIR$/api/query.php" />
         <option value="$PROJECT_DIR$/src/api/activity.log" />
-        <option value="$PROJECT_DIR$/src/api/helper.php" />
         <option value="$PROJECT_DIR$/src/api/json.php" />
         <option value="$PROJECT_DIR$/src/index.php" />
         <option value="$PROJECT_DIR$/app.properties" />
@@ -113,6 +114,7 @@
         <option value="$PROJECT_DIR$/src/api/headers.php" />
         <option value="$PROJECT_DIR$/src/api/logs.php" />
         <option value="$PROJECT_DIR$/src/api/xml.php" />
+        <option value="$PROJECT_DIR$/src/api/helper.php" />
       </list>
     </option>
   </component>
@@ -215,12 +217,12 @@
       <workItem from="1586663745717" duration="1663000" />
       <workItem from="1586682805873" duration="440000" />
       <workItem from="1586705400419" duration="844000" />
-      <workItem from="1586734165156" duration="19501000" />
+      <workItem from="1586734165156" duration="19760000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25704000" />
+    <option name="totallyTimeSpent" value="25963000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="6" />
@@ -402,10 +404,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/helper.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_8.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="332">
+          <caret line="699" column="9" selection-start-line="699" selection-start-column="9" selection-end-line="699" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/xml.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="32" column="93" selection-start-line="32" selection-start-column="93" selection-end-line="32" selection-end-column="93" />
         </state>
       </provider>
     </entry>
@@ -416,10 +425,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/xml.php">
+    <entry file="file://$PROJECT_DIR$/src/api/helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        <state relative-caret-position="210">
+          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
         </state>
       </provider>
     </entry>

@@ -16,7 +16,7 @@ if(! function_exists('logActivity')){
 
         fwrite($file_stream, $data.PHP_EOL);
         if(sizeof($request) > 0){
-            fwrite($file_stream, $request.PHP_EOL);
+            fwrite($file_stream, json_encode($request).PHP_EOL);
         }
 
         fclose($file_stream);
