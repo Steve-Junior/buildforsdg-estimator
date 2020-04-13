@@ -11,6 +11,7 @@ require ('helper.php');
 include '../Impact.php';
 include '../SevereImpact.php';
 
+
 // get posted data
 $start   = microtime(true);
 $request = json_decode(file_get_contents("php://input"), true);
