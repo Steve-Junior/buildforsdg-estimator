@@ -7,7 +7,7 @@
  */
 
 if(! function_exists('logActivity')){
-    function logActivity($requestMethod, $path, $httpStatus, $responseTimeInMicroSec){
+    function logActivity($requestMethod, $path, $httpStatus, $responseTimeInMicroSec, $request = []){
         $resTimeInMs = round($responseTimeInMicroSec * 1000, 4);
         $data = $requestMethod."\t".$path."\t".$httpStatus."\t".$resTimeInMs."ms";
 
@@ -15,6 +15,10 @@ if(! function_exists('logActivity')){
         $file_stream = fopen($log_file, 'a');
 
         fwrite($file_stream, $data.PHP_EOL);
+        if(sizeof($request) > 0){
+            fwrite($file_stream, $request.PHP_EOL);
+        }
+
         fclose($file_stream);
     }
 }

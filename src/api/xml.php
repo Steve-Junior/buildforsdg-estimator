@@ -14,8 +14,7 @@ include '../SevereImpact.php';
 // get posted data
 $start   = microtime(true);
 $request = json_decode(file_get_contents("php://input"), true);
-print_r($request);
-print_r($_SERVER);
+
 if(gettype($request) !== "array"){
     $request  = (array) $request;
 }
@@ -31,5 +30,5 @@ header("Content-type: text/xml", true, 200);
 echo $response;
 
 $end = microtime(true);
-logActivity($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], 200, $end - $start);
+logActivity($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], 200, $end - $start, $request);
 
