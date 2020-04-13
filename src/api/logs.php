@@ -13,6 +13,7 @@ $response = file_get_contents('activity.log');
 
 //header("Content-type: text/html");
 //header("Content-type: text/plain");
+
 http_response_code(200);
 
 echo $response;

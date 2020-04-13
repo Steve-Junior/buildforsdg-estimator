@@ -7,17 +7,14 @@
  */
 
 if(! function_exists('logActivity')){
-    function logActivity($requestMethod, $path, $httpStatus, $responseTimeInMicroSec, $request = []){
+    function logActivity($requestMethod, $path, $httpStatus, $responseTimeInMicroSec){
         $resTimeInMs = round($responseTimeInMicroSec * 1000, 4);
-        $data = $requestMethod."\t".$path."\t".$httpStatus."\t".$resTimeInMs."ms";
+        $data = $requestMethod."    ".$path."    ".$httpStatus."    ".$resTimeInMs."ms";
 
         $log_file    = "activity.log";
         $file_stream = fopen($log_file, 'a');
 
         fwrite($file_stream, $data.PHP_EOL);
-        if(sizeof($request) > 0){
-            fwrite($file_stream, json_encode($request).PHP_EOL);
-        }
 
         fclose($file_stream);
     }
