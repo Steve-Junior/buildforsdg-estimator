@@ -14,7 +14,7 @@ include '../SevereImpact.php';
 // get posted data
 $start   = microtime(true);
 $request = json_decode(file_get_contents("php://input"), true);
-
+print_r($request);
 if(gettype($request) !== "array"){
     $request  = (array) $request;
 }

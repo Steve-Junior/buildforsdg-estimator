@@ -11,7 +11,7 @@ require ('helper.php');
 $start   = microtime(true);
 $response = file_get_contents('activity.log');
 
-header("Content-type: text/plain");
+header("Content-type: text/html");
 http_response_code(200);
 
 echo $response;
