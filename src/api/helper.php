@@ -8,7 +8,7 @@
 
 if(! function_exists('logActivity')){
     function logActivity($requestMethod, $path, $httpStatus, $responseTimeInMicroSec){
-        $resTimeInMs = round($responseTimeInMicroSec * 1000, 4);
+        $resTimeInMs = str_pad(intval($responseTimeInMicroSec * 1000), 2, "0");
         $data = $requestMethod."    ".$path."    ".$httpStatus."    ".$resTimeInMs."ms";
 
         $log_file    = "activity.log";

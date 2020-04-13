@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fdbd3414-c7dd-4da1-bb3a-b0750abee9ee" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/api/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/logs.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/logs.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,16 +18,16 @@
     <splitter split-orientation="horizontal" split-proportion="0.7721894">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="helper.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="helper.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/api/helper.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="60">
-                  <caret line="9" column="84" selection-start-line="9" selection-start-column="84" selection-end-line="9" selection-end-column="84" />
+                  <caret line="9" column="86" selection-start-line="9" selection-start-column="86" selection-end-line="9" selection-end-column="86" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="logs.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="logs.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/logs.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="225">
@@ -39,7 +38,11 @@
           </file>
           <file leaf-file-name="activity.log" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/activity.log">
-              <provider selected="true" editor-type-id="LogFileEditorProvider" />
+              <provider selected="true" editor-type-id="LogFileEditorProvider">
+                <state>
+                  <caret column="39" lean-forward="true" selection-start-column="35" selection-end-column="39" />
+                </state>
+              </provider>
             </entry>
           </file>
         </leaf>
@@ -83,9 +86,9 @@
         <option value="$PROJECT_DIR$/src/api/query.php" />
         <option value="$PROJECT_DIR$/src/api/headers.php" />
         <option value="$PROJECT_DIR$/src/api/xml.php" />
-        <option value="$PROJECT_DIR$/src/api/helper.php" />
         <option value="$PROJECT_DIR$/src/api/activity.log" />
         <option value="$PROJECT_DIR$/src/api/logs.php" />
+        <option value="$PROJECT_DIR$/src/api/helper.php" />
       </list>
     </option>
   </component>
@@ -110,8 +113,8 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="123" />
     <option name="width" value="1280" />
     <option name="height" value="777" />
   </component>
@@ -188,15 +191,15 @@
       <workItem from="1586663745717" duration="1663000" />
       <workItem from="1586682805873" duration="440000" />
       <workItem from="1586705400419" duration="844000" />
-      <workItem from="1586734165156" duration="23085000" />
+      <workItem from="1586734165156" duration="24314000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29288000" />
+    <option name="totallyTimeSpent" value="30517000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="777" extended-state="6" />
+    <frame x="0" y="123" width="1280" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -382,20 +385,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="84" selection-start-line="9" selection-start-column="84" selection-end-line="9" selection-end-column="84" />
+    <entry file="file://$PROJECT_DIR$/src/api/activity.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state>
+          <caret column="39" lean-forward="true" selection-start-column="35" selection-end-column="39" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/activity.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/logs.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="86" selection-start-line="9" selection-start-column="86" selection-end-line="9" selection-end-column="86" />
         </state>
       </provider>
     </entry>
