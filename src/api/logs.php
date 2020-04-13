@@ -12,7 +12,7 @@ $start   = microtime(true);
 $response = file_get_contents('activity.log');
 
 header("Content-type: text/html");
-header("Content-type: text/plain", false);
+//header("Content-type: text/plain", false);
 http_response_code(200);
 
 echo $response;
