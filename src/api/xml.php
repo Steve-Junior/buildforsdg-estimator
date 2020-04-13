@@ -26,9 +26,10 @@ $arrayData = responseOutput($request, $impact->getPayload(), $severeImpact->getP
 
 $response = array_to_xml($arrayData);
 
-header("Content-type: text/xml", true, 200);
+header("Content-type: application/xml");
+http_response_code(200);
 echo $response;
 
 $end = microtime(true);
-logActivity($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], 200, $end - $start, $request);
+logActivity($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], 200, $end - $start);
 
